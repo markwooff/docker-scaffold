@@ -71,10 +71,12 @@ COPY composer.json /var/www/composer.json
 COPY composer.lock /var/www/composer.lock
 WORKDIR /var/www
 RUN apk --update --no-cache add git openssh-client; \
-    mkdir -p /root/.ssh; echo $SSH_PRIVATE_KEY | base64 -d > /root/.ssh/id_rsa; chmod 700 /root/.ssh; chmod 600 /root/.ssh/id_rsa; \
+    mkdir -p /root/.ssh; echo $SSH_PRIVATE_KEY | base64 -d > /root/.ssh/id_rsa; \
+    chmod 700 /root/.ssh; chmod 600 /root/.ssh/id_rsa; \
+    ssh-keyscan github.com > /root/.ssh/known_hosts; \
     composer global require "hirak/prestissimo:^0.3"; \
-    GIT_TRACE=1 composer install --prefer-dist \
-                     --no-interaction -vvv && \
+    composer install --prefer-dist \
+                     --no-interaction && \
     rm -rf /root/.ssh && \
     apk del git openssh-client
 

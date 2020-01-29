@@ -74,7 +74,7 @@ RUN apk --update --no-cache add git openssh-client; \
     mkdir -p /root/.ssh; echo $SSH_PRIVATE_KEY | base64 -d > /root/.ssh/id_rsa; chmod 600 /root/.ssh/id_rsa; \
     composer global require "hirak/prestissimo:^0.3"; \
     composer install --prefer-dist \
-                     --no-interaction && \
+                     --no-interaction -vvv && \
     rm -rf /root/.ssh && \
     apk del git openssh-client
 

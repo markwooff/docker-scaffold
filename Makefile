@@ -1,4 +1,4 @@
-NAME := $(or ${BASE_IMAGE},${BASE_IMAGE},drupalwxt/site-wxt)
+NAME := $(or $(BASE_IMAGE),$(BASE_IMAGE),drupalwxt/site-wxt)
 VERSION := $(or $(VERSION),$(VERSION),'latest')
 PLATFORM := $(shell uname -s)
 

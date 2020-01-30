@@ -48,3 +48,5 @@ RUN apk add --update --no-cache shadow@community=4.7-r1; \
     usermod -G staff www-data
 
 WORKDIR /var/www/html
+RUN mkdir sites/default/files
+RUN chown www-data:www-data sites/default/files

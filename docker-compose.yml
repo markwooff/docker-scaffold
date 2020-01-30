@@ -23,6 +23,7 @@ services:
       - no_proxy=${NO_PROXY}
     volumes:
       - ./docker/conf/drupal/settings.php:/var/www/html/sites/default/settings.php:ro
+      - ./docker/conf/drupal/services.yml:/var/www/html/sites/default/services.yml:ro
       - files_data:/var/www/html/sites/default/files
       - files_private_data:/var/www/files_private
     container_name: ${DOCKER_NAME}_web_scripts
@@ -47,6 +48,7 @@ services:
       - no_proxy=${NO_PROXY}
     volumes:
       - ./docker/conf/drupal/settings.php:/var/www/html/sites/default/settings.php:ro
+      - ./docker/conf/drupal/services.yml:/var/www/html/sites/default/services.yml:ro
       - files_data:/var/www/html/sites/default/files
       - files_private_data:/var/www/files_private
     depends_on:
@@ -69,6 +71,7 @@ services:
       - no_proxy=hub,${NO_PROXY}
     volumes:
       - ./docker/conf/drupal/settings.php:/var/www/html/sites/default/settings.php:ro
+      - ./docker/conf/drupal/services.yml:/var/www/html/sites/default/services.yml:ro
       - ./docker:/var/www/docker
       - files_data:/var/www/html/sites/default/files
       - files_private_data:/var/www/files_private

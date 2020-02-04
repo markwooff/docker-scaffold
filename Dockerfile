@@ -78,11 +78,7 @@ RUN apk --update --no-cache add git openssh-client; \
     composer install --prefer-dist \
                      --no-interaction && \
     rm -rf /root/.ssh && \
-<<<<<<< HEAD
-    apk del git openssh-client
-=======
     apk del openssh-client
->>>>>>> 1222ac21f9a6820fdc3e940a93c8fe4207fd077d
 
 # Permissions
 WORKDIR /var/www/html
